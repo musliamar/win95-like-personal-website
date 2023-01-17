@@ -1,0 +1,21 @@
+.icons {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 20px;
+    gap: 15px;
+}
+
+.icons .single-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 80px;
+}
+
+.icons .single-icon .icon-label {
+    font-weight: 600;
+    font-size: large;
+}

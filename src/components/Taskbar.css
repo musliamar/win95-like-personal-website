@@ -1,0 +1,50 @@
+.taskbar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #C0C0C0;
+    border-top: 2px solid #fff;
+    box-shadow: 0px -2px 0px 0px #DFDFDF;
+    height: 37px;
+}
+
+.taskbar .taskbar-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.taskbar .taskbar-items .start-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    height: 20px;
+    padding: 2px 4px 2px 4px;
+    margin: 3px 5px 3px 5px;
+    border-top: 2px solid #DFDFDF;
+    border-left: 2px solid #DFDFDF;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    box-shadow: -1px -1px 0px 1px #fff, 1px 1px 0px 1px #000000;
+}
+
+.taskbar .taskbar-items .start-button .start-label {
+    font-weight: bolder;
+    font-size: large;
+}
+
+.taskbar .taskbar-items .clock-and-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    height: 20px;
+    padding: 2px 4px 2px 4px;
+    margin: 3px 5px 3px 5px;
+    box-shadow: -1px -1px 0px 1px #808080, 1px 1px 0px 1px #DFDFDF;
+}

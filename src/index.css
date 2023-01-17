@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Windows95";   /*Can be any text*/
+  src: url('./font/w95fa.woff') format("woff");
+}
+
+body {
+  margin: 0;
+  font-family: 'Windows95';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url('./media/windows95.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  cursor: url('./media/win95cursordefault.png'), auto;
+}
