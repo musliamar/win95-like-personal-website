@@ -1,0 +1,99 @@
+.dialup {
+    width: 400px;
+    background-color: #C0C0C0;
+    border-top: 2px solid #DFDFDF;
+    border-left: 2px solid #DFDFDF;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    box-shadow: -1px -1px 0px 1px #fff, 1px 1px 0px 1px #000000;
+    position: absolute;
+    top: 30%;
+    right: 20%;
+}
+
+.dialup .window-title {
+    background-color: #000080;
+    padding: 5px 0px 5px 4px;
+    color: #fff;
+}
+
+.dialup .dialup-content {
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.dialup .dialup-content fieldset {
+    border-top: 2px solid #DFDFDF;
+    border-left: 2px solid #DFDFDF;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    box-shadow: -1px -1px 0px 1px #808080, 1px 1px 0px 1px #DFDFDF;
+}
+
+.dialup .dialup-content fieldset legend {
+    background-color: #C0C0C0;
+}
+
+.dialup .dialup-animation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #0D7D7D;
+}
+
+.dialup .dialup-animation .globe-icon {
+    padding: 8px;
+}
+
+.dialup .dialup-animation .dialup-icon {
+    padding-right: 8px;
+}
+
+.dialup .dialup-animation .loading {
+    font-size: 65px;
+    margin: 0px;
+    padding-right: 30px;
+}
+
+.dialup .dialup-animation .loading:after {
+    content: '.';
+    animation: dots 1s steps(1, end) infinite;
+}
+  
+
+@keyframes dots {
+        0%, 20% {
+          color: rgba(0, 0, 0, 0);
+          text-shadow:
+            
+            .25em 0 0 rgba(0, 0, 0, 0),
+            .5em 0 0 rgba(0, 0, 0, 0);}
+        40% {
+          color: rgba(0, 0, 0, 0);
+          text-shadow:
+          
+            .25em 0 0 rgba(0, 0, 0, 0),
+            .5em 0 0 #6AFBF9;}
+        60% {
+            color: rgba(0, 0, 0, 0);
+          text-shadow:
+          
+            .25em 0 0 #6AFBF9,
+            .5em 0 0 #6AFBF9;}
+        80%, 100% {
+            color: #6AFBF9;
+          text-shadow:
+          
+            .25em 0 0 #6AFBF9,
+            .5em 0 0 #6AFBF9;}
+}
+  
+@media (max-width: 520px) {
+    .dialup {
+        width: 80%;
+        left: 10%;
+        right: 10%;
+    }
+}
