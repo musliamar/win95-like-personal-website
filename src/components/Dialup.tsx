@@ -17,7 +17,8 @@ function Dialup (): JSX.Element {
   const [x, setX] = useState(200)
   const [y, setY] = useState(200)
   const [pressed, setPressed] = useState(false);
-
+  const [time, setTime] = useState(0);
+  
   const handleClose = () => {
     exposedData.stop()
     dispatch({ type: SHOW_DIALUP, payload: false })
@@ -43,7 +44,11 @@ function Dialup (): JSX.Element {
     if(message === 'Connected'){
       exposedData.stop()
     }
-  }, [message, pressed, enableSound, play, exposedData, dispatch]) 
+
+    if(!enableSound){
+      exposedData.pause()
+    }
+  }, [message, pressed, x, y, enableSound, play, exposedData, dispatch]) 
 
   function secondsToHms(d: number) {
 
@@ -80,8 +85,6 @@ function Dialup (): JSX.Element {
         </div>
 
   const ConnectedDetails = () => {
-
-    const [time, setTime] = useState(0);
 
     useEffect(() => {
       let interval = setInterval(() => {
