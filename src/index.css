@@ -14,4 +14,5 @@ body {
   -o-background-size: cover;
   background-size: cover;
   cursor: url('./media/win95cursordefault.png'), auto;
+  overflow: hidden;
 }

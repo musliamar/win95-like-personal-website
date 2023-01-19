@@ -12,9 +12,42 @@
 }
 
 .dialup .window-title {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     background-color: #000080;
-    padding: 5px 0px 5px 4px;
+    padding: 5px 5px 5px 4px;
     color: #fff;
+    gap: 5px;
+}
+
+.dialup .window-title .icon-and-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.dialup .window-title .close-window {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 20px;
+    font-weight: bolder;
+    padding-right: 8px;
+    padding-bottom: 4px;
+    background-color: #C0C0C0;
+    width: 17px;
+    height: 17px;
+    border-top: 2px solid #DFDFDF;
+    border-left: 2px solid #DFDFDF;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    box-shadow: -1px -1px 0px 1px #fff, 1px 1px 0px 1px #000000;
 }
 
 .dialup .dialup-content {
@@ -34,6 +67,24 @@
 
 .dialup .dialup-content fieldset legend {
     background-color: #C0C0C0;
+}
+
+.dialup .button {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+    align-items: center;
+    flex-direction: row;
+    height: 20px;
+    width: 70px;
+    padding: 2px 4px 2px 4px;
+    margin: 3px 5px 3px 5px;
+    border-top: 2px solid #DFDFDF;
+    border-left: 2px solid #DFDFDF;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    box-shadow: -1px -1px 0px 1px #fff, 1px 1px 0px 1px #000000;
 }
 
 .dialup .dialup-animation {
@@ -61,33 +112,103 @@
     content: '.';
     animation: dots 1s steps(1, end) infinite;
 }
-  
 
+.dialup .loading-simple:after {
+    content: '.';
+    animation: black-dots 1s steps(1, end) infinite;
+}
+
+.dialup .dialup-connected {
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.dialup .dialup-connected .informations {
+    display: flex;
+    gap: 15px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.dialup .dialup-connected .informations .icon-and-data {
+    display: flex;
+    gap: 15px;
+    flex-direction: row;
+}
+
+.dialup .dialup-connected .informations .icon-and-data .data {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.dialup .dialup-connected .server-and-protocols {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dialup .dialup-textarea {
+    padding: 2px 4px 2px 4px;
+    box-shadow: -1px -1px 0px 1px #000000, 1px 1px 0px 1px #fff;
+    height: 50px;
+}
+  
 @keyframes dots {
-        0%, 20% {
-          color: rgba(0, 0, 0, 0);
+    0%, 20% {
+      color: rgba(0, 0, 0, 0);
+      text-shadow:
+        
+        .25em 0 0 rgba(0, 0, 0, 0),
+        .5em 0 0 rgba(0, 0, 0, 0);}
+    40% {
+      color: rgba(0, 0, 0, 0);
+      text-shadow:
+      
+        .25em 0 0 rgba(0, 0, 0, 0),
+        .5em 0 0 #6AFBF9;}
+    60% {
+        color: rgba(0, 0, 0, 0);
+      text-shadow:
+      
+        .25em 0 0 #6AFBF9,
+        .5em 0 0 #6AFBF9;}
+    80%, 100% {
+        color: #6AFBF9;
+      text-shadow:
+      
+        .25em 0 0 #6AFBF9,
+        .5em 0 0 #6AFBF9;}
+}
+
+@keyframes black-dots {
+        100%, 80% {
+          color: #000;
           text-shadow:
             
-            .25em 0 0 rgba(0, 0, 0, 0),
+            .25em 0 0 #000,
+            .5em 0 0 #000;}
+        60% {
+          color: #000;
+          text-shadow:
+          
+            .25em 0 0 #000,
             .5em 0 0 rgba(0, 0, 0, 0);}
         40% {
-          color: rgba(0, 0, 0, 0);
+            color: #000;
           text-shadow:
           
             .25em 0 0 rgba(0, 0, 0, 0),
-            .5em 0 0 #6AFBF9;}
-        60% {
+            .5em 0 0 rgba(0, 0, 0, 0);}
+        20%, 0% {
             color: rgba(0, 0, 0, 0);
           text-shadow:
           
-            .25em 0 0 #6AFBF9,
-            .5em 0 0 #6AFBF9;}
-        80%, 100% {
-            color: #6AFBF9;
-          text-shadow:
-          
-            .25em 0 0 #6AFBF9,
-            .5em 0 0 #6AFBF9;}
+            .25em 0 0 rgba(0, 0, 0, 0),
+            .5em 0 0 rgba(0, 0, 0, 0);}
 }
   
 @media (max-width: 520px) {

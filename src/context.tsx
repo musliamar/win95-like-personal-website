@@ -7,25 +7,31 @@ import React, {
   } from 'react'
   
   import {
-    SHOW_DIALUP_BUTTON,
-    SHOW_DIALUP
+    DIALING_ACTIVE,
+    SHOW_DIALUP,
+    ENABLE_SOUND
   } from './constants'
   
   interface State {
-    showDialupButton: boolean
+    dialingActive: boolean
     showDialup: boolean
+    enableSound: boolean
   }
   
   const initialValues = {
-    showDialupButton: false,
-    showDialup: false
+    dialingActive: false,
+    showDialup: false,
+    enableSound: false
   }
   
   type Action = | {
-    type: 'SHOW_PLAY_BUTTON',
+    type: 'DIALING_ACTIVE',
     payload: boolean
   } | {
     type: 'SHOW_DIALUP',
+    payload: boolean
+  } | {
+    type: 'ENABLE_SOUND'
     payload: boolean
   } 
   
@@ -37,7 +43,7 @@ import React, {
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const reducer = (state: State, action: Action) => {
     switch (action.type) {
-      case SHOW_DIALUP_BUTTON:
+      case DIALING_ACTIVE:
         return {
           ...state,
           showDialupButton: action.payload
@@ -47,6 +53,12 @@ import React, {
           ...state,
           showDialup: action.payload
         }
+      case ENABLE_SOUND:
+          return {
+            ...state,
+            enableSound: action.payload,
+            showDialupButton: action.payload
+          }
       default:
         throw new Error(`Unknown action: ${JSON.stringify(action)}`)
     }

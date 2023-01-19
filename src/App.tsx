@@ -13,12 +13,12 @@ function App() {
 
   useEffect(() => {
     !showDialup && dispatch({ type: SHOW_DIALUP, payload: true })
-  }, [dispatch, showDialup])
+  }, [])
 
   return (
     <div className="App">
       <Icons />
-      {showDialup && <Dialup />}
+      {showDialup === true ? <Dialup /> : null}
       <Taskbar />
     </div>
   );

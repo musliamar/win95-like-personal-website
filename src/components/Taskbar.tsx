@@ -2,21 +2,23 @@ import React, { useEffect, useState } from 'react'
 import './Taskbar.css'
 import StartIcon from '../media/win95icon.png'
 import { useStore, useDispatch } from '../context'
-import { SHOW_DIALUP_BUTTON } from '../constants'
-import DialupSoundButton from './DialupSoundButton'
+import { ENABLE_SOUND, SHOW_DIALUP } from '../constants'
+import ModemDial from '../media/modem-dial.gif'
+import DialingDone from '../media/dialing-done.png'
+import SoundOn from '../media/sound-on.png'
+import SoundOff from '../media/sound-off.png'
 
 function Taskbar (): JSX.Element {
 
     const time = new Date();
     const usTime = time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
     const dispatch = useDispatch();
-    const { showDialupButton, showDialup } = useStore();
+    const { showDialup, enableSound, dialingActive } = useStore();
 
   return (
     <div className='taskbar-container'>
     <div className='credits'>
-        {(showDialupButton && showDialup) && <DialupSoundButton />}
-        {showDialup && <button onClick={() => dispatch({ type: SHOW_DIALUP_BUTTON, payload: true })}>Play sound?</button>}
+        <button onClick={() => dispatch({type: ENABLE_SOUND, payload: !enableSound})}>{enableSound ? 'Disable sound' : 'Enable sound'}</button>
         <span>W95FA font by <a href='https://sava.io/' target='_blank' rel="noreferrer">Alina Sava</a></span>
         <span>Windows 95 icons by <a href='https://github.com/trapd00r/win95-winxp_icons' target='_blank' rel="noreferrer">trapd00r</a></span>
     </div>
@@ -27,6 +29,10 @@ function Taskbar (): JSX.Element {
                 <span className='start-label'>Start</span>
             </div>
             <div className='clock-and-icons'>
+                {enableSound ? <img onClick={() => dispatch({ type: ENABLE_SOUND, payload: false })} className='icon-in-taskbar' src={SoundOn} alt='Sound on' width='20' />
+                : <img onClick={() => dispatch({ type: ENABLE_SOUND, payload: true })} className='icon-in-taskbar' src={SoundOff} alt='Sound off' width='20' /> }
+                {showDialup ? <img src={ModemDial} alt='Dialing' width='23' />
+                : <img onClick={() => dispatch({ type: SHOW_DIALUP, payload: true })} className='icon-in-taskbar' src={DialingDone} alt='Connected' width='23' /> }
                 {usTime}
             </div>
         </div>

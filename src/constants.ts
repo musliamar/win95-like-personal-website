@@ -1,2 +1,3 @@
-export const SHOW_DIALUP_BUTTON = 'SHOW_PLAY_BUTTON';
-export const SHOW_DIALUP = 'SHOW_DIALUP'
+export const DIALING_ACTIVE = 'DIALING_ACTIVE';
+export const SHOW_DIALUP = 'SHOW_DIALUP';
+export const ENABLE_SOUND = 'ENABLE_SOUND';

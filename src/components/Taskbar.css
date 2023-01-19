@@ -57,8 +57,13 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
+    gap: 10px;
     height: 20px;
-    padding: 2px 4px 2px 4px;
+    padding: 2px 10px 2px 10px;
     margin: 3px 5px 3px 5px;
     box-shadow: -1px -1px 0px 1px #808080, 1px 1px 0px 1px #DFDFDF;
+}
+
+.taskbar-container .taskbar .taskbar-items .clock-and-icons .icon-in-taskbar {
+    cursor: pointer;
 }
