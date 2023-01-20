@@ -15,7 +15,7 @@ function App() {
 
   useEffect(() => {
     !showDialup && dispatch({ type: SHOW_DIALUP, payload: true })
-  }, [])
+  }, [dispatch])
 
   return (
     <div className="App">

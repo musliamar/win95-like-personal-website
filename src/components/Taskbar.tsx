@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react'
 import './Taskbar.css'
 import StartIcon from '../media/win95icon.png'
-import Me from '../media/me.png'
+import Somebody from '../media/cia.png'
 import WorkIcon from '../media/work.png'
 import { useStore, useDispatch } from '../context'
-import { ENABLE_SOUND, SHOW_DIALUP } from '../constants'
+import { ENABLE_SOUND, SHOW_DIALUP, SHOW_ABOUT, SHOW_WORK } from '../constants'
 import ModemDial from '../media/modem-dial.gif'
 import DialingDone from '../media/dialing-done.png'
 import SoundOn from '../media/sound-on.png'
@@ -28,10 +28,8 @@ function Taskbar (): JSX.Element {
     useEffect(() =>{
         window.onclick = (event: MouseEvent) => {
             if (startButtonRef.current && startButtonRef.current.contains(event.target as Node)){
-                console.log('ima')
                 setShowStartPanel(true)
             }else{
-                console.log('nema')
                 setShowStartPanel(false)
             }};
     })
@@ -52,8 +50,8 @@ function Taskbar (): JSX.Element {
             <img src={Windows95Vertical} alt='Connecting'/>
             </div>
             <div className='start-content-items'>
-                <div className='single-item'>
-                    <img src={Me} alt='Connecting' width='25' />
+                <div onClick={() => dispatch({ type: SHOW_ABOUT, payload: true })} className='single-item'>
+                    <img src={Somebody} alt='Connecting' width='25' />
                     <span>About Me</span>
                 </div>
                 <a href='https://github.com/musliamar' target='_blank' rel="noreferrer">
@@ -68,23 +66,18 @@ function Taskbar (): JSX.Element {
                     <span>My LinkedIn</span>
                 </div>
                     </a>
-                <div className='single-item'>
+                <div onClick={() => dispatch({ type: SHOW_WORK, payload: true })} className='single-item'>
                 <img src={Work} alt='Connecting' width='25' />
                     <span>My Work</span>
                 </div>
-                <div className='single-item'>
+                <div onClick={() => dispatch({ type: SHOW_DIALUP, payload: true })} className='single-item'>
                 <img src={DialupWindowIcon} alt='Connecting' width='25' />
                     <span>Dial-up Connection</span>
-                </div>
-                <div className='single-item'>
-                <img src={DialupWindowIcon} alt='Connecting' width='25' />
-                    <span>Programs</span>
                 </div>
             </div>
         </div>)
     }
 
-    console.log(showStartPanel)
   return (
     <div className='taskbar-container'>
     <div className='credits'>
@@ -107,7 +100,7 @@ function Taskbar (): JSX.Element {
                         {window.innerWidth > 600 && <span>Dialing status</span>}
                     </div>}
                     {showAbout && <div className='window-button'>
-                        <img src={Me} alt='Me' width='20' />
+                        <img src={Somebody} alt='Me' width='20' />
                         {window.innerWidth > 600 && <span>About me</span>}
                     </div>}
                     {showWork && <div className='window-button'>

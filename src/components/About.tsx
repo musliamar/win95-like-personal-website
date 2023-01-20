@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import './Dialup.css'
 import { useDispatch } from '../context'
 import { SHOW_ABOUT, SET_CURRENTLY_ACTIVE } from '../constants'
+import Somebody from '../media/cia.png'
 import Me from '../media/me.png'
 import Linkedin from '../media/linkedin.png'
 import Github from '../media/github.png'
@@ -49,7 +50,7 @@ function About (): JSX.Element {
           onMouseLeave={() => setPressed(false)} 
           className='window-title'>
           <div className='icon-and-title'>
-            <img src={Me} alt='Me' width='20' />
+            <img src={Somebody} alt='Me' width='20' />
             <span>About me</span>
           </div>
           <button className='close-window' onClick={() => handleClose()}>x</button>

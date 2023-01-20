@@ -1,5 +1,5 @@
 import React from 'react'
-import Me from '../media/me.png'
+import Somebody from '../media/cia.png'
 import Work from '../media/work.png'
 import DialupWindowIcon from '../media/dialup-window-icon.png'
 import './Icons.css'
@@ -14,15 +14,15 @@ function Icons (): JSX.Element {
 
   return (
     <div style={{ height: maxHeight }} className='icons'>
-        <div onClick={() => dispatch({ type: SHOW_ABOUT, payload: !showAbout })} className='single-icon'>
-            <img src={Me} alt='Me' width='60' />
+        <div onClick={() => dispatch({ type: SHOW_ABOUT, payload: true })} className='single-icon'>
+            <img src={Somebody} alt='Me' width='60' />
             <span className='icon-label'>About Me</span>
         </div>
-        <div onClick={() => dispatch({ type: SHOW_WORK, payload: !showWork })} className='single-icon'>
+        <div onClick={() => dispatch({ type: SHOW_WORK, payload: true })} className='single-icon'>
             <img src={Work} alt='My work' width='60' />
             <span className='icon-label'>My Work</span>
         </div>  
-        <div onClick={() => dispatch({ type: SHOW_DIALUP, payload: !showDialup })} className='single-icon'>
+        <div onClick={() => dispatch({ type: SHOW_DIALUP, payload: true })} className='single-icon'>
             <img src={DialupWindowIcon} alt='Start connection' width='60' />
             <span className='icon-label'>Internet Central</span>
         </div>  
