@@ -7,32 +7,44 @@ import React, {
   } from 'react'
   
   import {
-    DIALING_ACTIVE,
+    SHOW_ABOUT,
     SHOW_DIALUP,
+    SET_CURRENTLY_ACTIVE,
+    SHOW_WORK,
     ENABLE_SOUND
   } from './constants'
   
   interface State {
-    dialingActive: boolean
+    showAbout: boolean
     showDialup: boolean
+    showWork: boolean
+    currentlyActive: string
     enableSound: boolean
   }
   
   const initialValues = {
-    dialingActive: false,
+    showAbout: false,
     showDialup: false,
+    showWork: false,
+    currentlyActive: '',
     enableSound: false
   }
   
   type Action = | {
-    type: 'DIALING_ACTIVE',
+    type: 'SHOW_ABOUT',
     payload: boolean
   } | {
     type: 'SHOW_DIALUP',
     payload: boolean
   } | {
+    type: 'SHOW_WORK',
+    payload: boolean
+  } | {
     type: 'ENABLE_SOUND'
     payload: boolean
+  } | {
+    type: 'SET_CURRENTLY_ACTIVE'
+    payload: string
   } 
   
   const StateContext = createContext<State>(initialValues)
@@ -43,22 +55,31 @@ import React, {
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const reducer = (state: State, action: Action) => {
     switch (action.type) {
-      case DIALING_ACTIVE:
+      case SHOW_ABOUT:
         return {
           ...state,
-          showDialupButton: action.payload
+          showAbout: action.payload
         }
       case SHOW_DIALUP:
         return {
           ...state,
           showDialup: action.payload
         }
+        case SHOW_WORK:
+          return {
+            ...state,
+            showWork: action.payload
+          }
       case ENABLE_SOUND:
           return {
             ...state,
             enableSound: action.payload,
-            showDialupButton: action.payload
           }
+          case SET_CURRENTLY_ACTIVE:
+            return {
+              ...state,
+              currentlyActive: action.payload,
+            }
       default:
         throw new Error(`Unknown action: ${JSON.stringify(action)}`)
     }

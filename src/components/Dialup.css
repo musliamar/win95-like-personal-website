@@ -7,54 +7,7 @@
     border-bottom: 2px solid #808080;
     box-shadow: -1px -1px 0px 1px #fff, 1px 1px 0px 1px #000000;
     position: absolute;
-    top: 30%;
-    right: 20%;
-}
-
-.dialup .window-title {
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #000080;
-    padding: 5px 5px 5px 4px;
-    color: #fff;
-    gap: 5px;
-}
-
-.dialup .window-title .icon-and-title {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 5px;
-}
-
-.dialup .window-title .close-window {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    font-size: 20px;
-    font-weight: bolder;
-    padding-right: 8px;
-    padding-bottom: 4px;
-    background-color: #C0C0C0;
-    width: 17px;
-    height: 17px;
-    border-top: 2px solid #DFDFDF;
-    border-left: 2px solid #DFDFDF;
-    border-right: 2px solid #808080;
-    border-bottom: 2px solid #808080;
-    box-shadow: -1px -1px 0px 1px #fff, 1px 1px 0px 1px #000000;
-}
-
-.dialup .dialup-content {
-    padding: 20px 20px 20px 20px;
-    display: flex;
-    gap: 15px;
-    flex-direction: column;
+    z-index: 4;
 }
 
 .dialup .dialup-content fieldset {

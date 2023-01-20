@@ -1,0 +1,49 @@
+.work {
+    width: 700px;
+    max-height: 600px;
+    background-color: #C0C0C0;
+    border-top: 2px solid #DFDFDF;
+    border-left: 2px solid #DFDFDF;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    box-shadow: -1px -1px 0px 1px #fff, 1px 1px 0px 1px #000000;
+    position: absolute;
+    z-index: 1;
+}
+
+.work .window-content {
+    max-height: 530px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.work .single-project {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.work .single-project .details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.work .single-project .details .icons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 0px;
+}
+
+.work h3 {
+    margin: 0px;
+}
+
+@media (max-width: 830px) {
+    .work {
+        width: 80%;
+        left: 10%;
+        right: 10%;
+    }
+}

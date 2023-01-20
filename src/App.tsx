@@ -3,12 +3,14 @@ import './App.css';
 import Taskbar from './components/Taskbar';
 import Icons from './components/Icons';
 import Dialup from './components/Dialup';
+import About from './components/About';
+import Work from './components/Work';
 import { useStore, useDispatch } from './context';
 import { SHOW_DIALUP } from './constants';
 
 function App() {
 
-  const { showDialup } = useStore();
+  const { showDialup, showAbout, showWork } = useStore();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,7 +20,9 @@ function App() {
   return (
     <div className="App">
       <Icons />
-      {showDialup === true ? <Dialup /> : null}
+      {showDialup && <Dialup />}
+      {showAbout && <About />}
+      {showWork && <Work />}
       <Taskbar />
     </div>
   );

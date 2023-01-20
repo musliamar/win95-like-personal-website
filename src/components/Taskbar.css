@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    z-index: 4;
 }
 
 .taskbar-container .credits {
@@ -11,6 +12,7 @@
     flex-direction: column;
     position: absolute;
     align-self: flex-end;
+    align-items: flex-end;
     bottom: 50px;
     margin-right: 10px;
     gap: 10px;
@@ -36,6 +38,7 @@
 }
 
 .taskbar-container .start-content .start-content-items .single-item {
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -106,6 +109,12 @@
     background-color: #DFDFDF;
     padding: 3px 10px 3px 10px;
     box-shadow: -1px -1px 0px 1px #000000, 1px 1px 0px 1px #fff;
+}
+
+.taskbar-container .taskbar .taskbar-items .start-and-windows .windows {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 
 .taskbar-container .taskbar .taskbar-items .start-button .start-label {

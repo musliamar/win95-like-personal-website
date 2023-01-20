@@ -1,0 +1,48 @@
+.about {
+    width: 500px;
+    background-color: #C0C0C0;
+    border-top: 2px solid #DFDFDF;
+    border-left: 2px solid #DFDFDF;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    box-shadow: -1px -1px 0px 1px #fff, 1px 1px 0px 1px #000000;
+    position: absolute;
+    z-index: 2;
+}
+
+.about .window-content .contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about .window-content .contact .icons {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+}
+
+.about .window-content span {
+    font-size: large;
+}
+
+.about .window-content h1 {
+    font-size: x-large;
+}
+
+.about .personal-details {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+    .about {
+        width: 80%;
+        left: 10%;
+        right: 10%;
+    }
+}

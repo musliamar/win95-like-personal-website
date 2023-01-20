@@ -1,6 +1,88 @@
+.App ::-webkit-scrollbar {
+    width: 15px;
+}
+  
+.App ::-webkit-scrollbar-track {
+    background-color: #DFDFDF;
+}
+   
+.App ::-webkit-scrollbar-thumb {
+    background-color: #C0C0C0;
+    border-top: 2px solid #DFDFDF;
+    border-left: 2px solid #DFDFDF;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+}
+  
+.App ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
 .App {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
     overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+button {
+    height: 35px;
+}
+
+hr.divider {
+    border-top: 1px solid #808080;
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    margin: 0px;
+}
+
+.window-title {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000080;
+    padding: 5px 5px 5px 4px;
+    color: #fff;
+    gap: 5px;
+}
+
+.window-title .icon-and-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.window-title .close-window {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 20px;
+    font-weight: bolder;
+    padding-right: 8px;
+    padding-bottom: 4px;
+    background-color: #C0C0C0;
+    width: 17px;
+    height: 17px;
+    border-top: 2px solid #DFDFDF;
+    border-left: 2px solid #DFDFDF;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    box-shadow: -1px -1px 0px 1px #fff, 1px 1px 0px 1px #000000;
+}
+
+.window-content {
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
 }
