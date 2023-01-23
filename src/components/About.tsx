@@ -65,9 +65,10 @@ function About (): JSX.Element {
                     <span> from Bijeljina, Bosnia</span>
                 </div>
             </div>
-            <span>Experience: HTML, CSS, WordPress, SEO & Linux servers</span>
-            <span>Basic skills: React (JavaScript/TypeScript) - MySQL - Git - NextJS - Redux-Toolkit - REST API - Tailwind CSS - Material UI - Figma</span>
-            <span>Interests: Angular & .NET C#</span>
+            <span>Experience: HTML / CSS / WordPress / SEO / Linux servers</span>
+            <span>Basic skills: JavaScript / TypeScript / Git / React / Redux-Toolkit / GraphQL / REST API / Next.js / Prisma / MySQL / Node.js / Exp
+ress.js / Sequelize / Material UI / Tailwind CSS / Figma</span>
+            <span>Interests: .NET C# / Angular / Vue.js</span>
             <div className='contact'>
                 <div className='email'>
                     <span>Contact: </span>

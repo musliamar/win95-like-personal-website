@@ -13,6 +13,7 @@ import Windows95Vertical from '../media/windowsvertical.png'
 import Linkedin from '../media/linkedin.png'
 import Github from '../media/github.png'
 import DialupWindowIcon from '../media/dialup-window-icon.png'
+import PreviewIcon from '../media/preview.png'
 
 function Taskbar (): JSX.Element {
   const time = new Date()
@@ -80,10 +81,10 @@ function Taskbar (): JSX.Element {
   return (
     <div className='taskbar-container'>
     <div className='credits'>
-        <span>BETA VERSION</span>
+        <span>BETA VERSION 1.3.3.7</span>
         <button onClick={() => { dispatch({ type: ENABLE_SOUND, payload: !enableSound }) }}>{enableSound ? 'Disable sound' : 'Enable sound'}</button>
-        <span>W95FA font by <a href='https://sava.io/' target='_blank' rel="noreferrer">Alina Sava</a></span>
-        <span>Windows 95 icons by <a href='https://github.com/trapd00r/win95-winxp_icons' target='_blank' rel="noreferrer">trapd00r</a></span>
+        <span>W95FA font by <a href='https://sava.io/' target='_blank' rel="noreferrer">Alina Sava <img src={PreviewIcon} alt='Preview icon' width='20' /></a></span>
+        <span>Windows 95 icons by <a href='https://github.com/trapd00r/win95-winxp_icons' target='_blank' rel="noreferrer">trapd00r <img src={PreviewIcon} alt='Preview icon' width='20' /></a></span>
     </div>
     {showStartPanel && <StartContent />}
     <div className='taskbar'>
