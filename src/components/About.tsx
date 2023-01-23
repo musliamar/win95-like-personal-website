@@ -13,6 +13,7 @@ function About (): JSX.Element {
   const [x, setX] = useState(100)
   const [y, setY] = useState(130)
   const yIsPercentage = (y === 10) ? `${y}%` : `${y}px`
+  const xIsPercentage = (x === 6) ? `${x}%` : `${x}px`
   const [pressed, setPressed] = useState(false)
   const aboutRef = useRef<HTMLDivElement>(null)
 
@@ -23,7 +24,10 @@ function About (): JSX.Element {
 
   useEffect(() => {
     const { innerWidth } = window
-    innerWidth < 1100 && setY(10)
+    if (innerWidth < 1100) {
+      setY(10)
+      setX(6)
+    }
 
     /* window.onclick = (event: MouseEvent) => {
             if (aboutRef.current && aboutRef.current.contains(event.target as Node)){
@@ -40,7 +44,7 @@ function About (): JSX.Element {
   }
 
   return (
-    <div ref={aboutRef} className='about' style={{ top: `${x}px`, left: yIsPercentage }}>
+    <div ref={aboutRef} className='about' style={{ top: xIsPercentage, left: yIsPercentage }}>
         <div
           onMouseMove={(e) => { handleMove(e) }}
           onMouseDown={() => { setPressed(true) }}

@@ -14,6 +14,7 @@ function Work (): JSX.Element {
   const [x, setX] = useState(80)
   const [y, setY] = useState(150)
   const yIsPercentage = (y === 10) ? `${y}%` : `${y}px`
+  const xIsPercentage = (x === 3) ? `${x}%` : `${x}px`
   const [pressed, setPressed] = useState(false)
   const initialWorkData: string[] = []
   const [workData, setWorkData] = useState(initialWorkData)
@@ -26,7 +27,10 @@ function Work (): JSX.Element {
 
   useEffect(() => {
     const { innerWidth } = window
-    innerWidth < 1100 && setY(10)
+    if (innerWidth < 1100) {
+      setY(10)
+      setX(3)
+    }
 
     window.onclick = (event: MouseEvent) => {
       if ((workRef.current?.contains(event.target as Node)) === true) {
@@ -54,7 +58,7 @@ function Work (): JSX.Element {
   }
 
   return (
-    <div ref={workRef} className='work' style={{ top: `${x}px`, left: yIsPercentage }}>
+    <div ref={workRef} className='work' style={{ top: xIsPercentage, left: yIsPercentage }}>
         <div
           onMouseMove={(e) => { handleMove(e) }}
           onMouseDown={() => { setPressed(true) }}

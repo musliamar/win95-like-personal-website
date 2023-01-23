@@ -167,6 +167,7 @@
 @media (max-width: 520px) {
     .dialup {
         width: 80%;
+        top: 10%;
         left: 10%;
         right: 10%;
     }

@@ -46,5 +46,9 @@
         width: 80%;
         left: 10%;
         right: 10%;
+        max-height: 500px;
+    }
+    .work .window-content {
+        max-height: 430px;
     }
 }

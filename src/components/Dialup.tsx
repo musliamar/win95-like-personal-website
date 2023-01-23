@@ -18,6 +18,7 @@ function Dialup (): JSX.Element {
   const [x, setX] = useState(170)
   const [y, setY] = useState(700)
   const yIsPercentage = (y === 10) ? `${y}%` : `${y}px`
+  const xIsPercentage = (x === 10) ? `${x}%` : `${x}px`
   const [pressed, setPressed] = useState(false)
   const [time, setTime] = useState(0)
   const dialupRef = useRef<HTMLDivElement>(null)
@@ -39,7 +40,10 @@ function Dialup (): JSX.Element {
 
   useEffect(() => {
     const { innerWidth } = window
-    innerWidth < 1100 && setY(10)
+    if (innerWidth < 1100) {
+      setY(10)
+      setX(10)
+    }
 
     /*  window.onclick = (event: MouseEvent) => {
       if (dialupRef.current && dialupRef.current.contains(event.target as Node)){
@@ -64,7 +68,7 @@ function Dialup (): JSX.Element {
         setPlaying(false)
       }
 
-      if (!playing && message === 'Dialing' && !pressed && x === 170) {
+      if (!playing && message === 'Dialing' && !pressed) {
         playMusic()
         setTimeout(() => { setMessage('Verifying user name and password') }, 13000)
         setTimeout(() => { setMessage('Logging on to network') }, 21000)
@@ -156,7 +160,7 @@ function Dialup (): JSX.Element {
   }
 
   return (
-    <div ref={dialupRef} className='dialup' style={{ top: `${x}px`, left: yIsPercentage }}>
+    <div ref={dialupRef} className='dialup' style={{ top: xIsPercentage, left: yIsPercentage }}>
         <div
           onMouseMove={(e) => { handleMove(e) }}
           onMouseDown={() => { setPressed(true) }}
