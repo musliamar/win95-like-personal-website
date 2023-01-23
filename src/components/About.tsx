@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './Dialup.css'
 import { useDispatch } from '../context'
-import { SHOW_ABOUT, SET_CURRENTLY_ACTIVE } from '../constants'
+import { SHOW_ABOUT } from '../constants'
 import Somebody from '../media/cia.png'
 import Me from '../media/me.png'
 import Linkedin from '../media/linkedin.png'
@@ -9,51 +9,49 @@ import Github from '../media/github.png'
 import './About.css'
 
 function About (): JSX.Element {
-
   const dispatch = useDispatch()
   const [x, setX] = useState(100)
   const [y, setY] = useState(130)
-  const yIsPercentage = (y === 10) ? `${y}%` : `${y}px` 
-  const [pressed, setPressed] = useState(false);
-  const aboutRef = useRef<HTMLDivElement>(null);
+  const yIsPercentage = (y === 10) ? `${y}%` : `${y}px`
+  const [pressed, setPressed] = useState(false)
+  const aboutRef = useRef<HTMLDivElement>(null)
 
-  const handleClose = () => {
+  const handleClose = (): void => {
     dispatch({ type: SHOW_ABOUT, payload: false })
     /* dispatch({ type: SET_CURRENTLY_ACTIVE, payload: '' }) */
   }
 
   useEffect(() => {
-        const { innerWidth } = window;
-        innerWidth < 1100 && setY(10)
+    const { innerWidth } = window
+    innerWidth < 1100 && setY(10)
 
-       /* window.onclick = (event: MouseEvent) => {
+    /* window.onclick = (event: MouseEvent) => {
             if (aboutRef.current && aboutRef.current.contains(event.target as Node)){
                 dispatch({ type: SET_CURRENTLY_ACTIVE, payload: 'about' })
             }}; */
   }, [])
 
-  
-  const handleMove = (e: React.MouseEvent) => {
-    if(pressed) {
-      const { movementX, movementY } = e;
+  const handleMove = (e: React.MouseEvent): void => {
+    if (pressed) {
+      const { movementX, movementY } = e
       setX(x + movementY)
       setY(y + movementX)
     }
-  };
+  }
 
   return (
-    <div ref={aboutRef} className='about' style={{top: `${x}px`, left: yIsPercentage}}>
-        <div 
-          onMouseMove={(e) => handleMove(e)} 
-          onMouseDown={() => setPressed(true)} 
-          onMouseUp={() => setPressed(false)} 
-          onMouseLeave={() => setPressed(false)} 
+    <div ref={aboutRef} className='about' style={{ top: `${x}px`, left: yIsPercentage }}>
+        <div
+          onMouseMove={(e) => { handleMove(e) }}
+          onMouseDown={() => { setPressed(true) }}
+          onMouseUp={() => { setPressed(false) }}
+          onMouseLeave={() => { setPressed(false) }}
           className='window-title'>
           <div className='icon-and-title'>
             <img src={Somebody} alt='Me' width='20' />
             <span>About me</span>
           </div>
-          <button className='close-window' onClick={() => handleClose()}>x</button>
+          <button className='close-window' onClick={() => { handleClose() }}>x</button>
         </div>
         <div className='window-content'>
             <div className='personal-details'>

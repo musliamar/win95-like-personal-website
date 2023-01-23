@@ -1,5 +1,5 @@
-export const SHOW_ABOUT = 'SHOW_ABOUT';
-export const SHOW_DIALUP = 'SHOW_DIALUP';
-export const SHOW_WORK = 'SHOW_WORK';
-export const SET_CURRENTLY_ACTIVE = 'SET_CURRENTLY_ACTIVE';
-export const ENABLE_SOUND = 'ENABLE_SOUND';
+export const SHOW_ABOUT = 'SHOW_ABOUT'
+export const SHOW_DIALUP = 'SHOW_DIALUP'
+export const SHOW_WORK = 'SHOW_WORK'
+export const SET_CURRENTLY_ACTIVE = 'SET_CURRENTLY_ACTIVE'
+export const ENABLE_SOUND = 'ENABLE_SOUND'

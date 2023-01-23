@@ -12,45 +12,44 @@ import SoundOff from '../media/sound-off.png'
 import Windows95Vertical from '../media/windowsvertical.png'
 import Linkedin from '../media/linkedin.png'
 import Github from '../media/github.png'
-import Work from '../media/work.png'
 import DialupWindowIcon from '../media/dialup-window-icon.png'
 
 function Taskbar (): JSX.Element {
+  const time = new Date()
+  const usTime = time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+  const dispatch = useDispatch()
+  const { showDialup, enableSound, showAbout, showWork } = useStore()
+  const [showStartPanel, setShowStartPanel] = useState(false)
+  const startRef = useRef<HTMLDivElement>(null)
+  const startButtonRef = useRef<HTMLDivElement>(null)
 
-    const time = new Date();
-    const usTime = time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
-    const dispatch = useDispatch();
-    const { showDialup, enableSound, showAbout, showWork } = useStore();
-    const [showStartPanel, setShowStartPanel] = useState(false)
-    const startRef = useRef<HTMLDivElement>(null);
-    const startButtonRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    window.onclick = (event: MouseEvent) => {
+      if ((startButtonRef.current?.contains(event.target as Node)) === true) {
+        setShowStartPanel(true)
+      } else {
+        setShowStartPanel(false)
+      }
+    }
+  })
 
-    useEffect(() =>{
-        window.onclick = (event: MouseEvent) => {
-            if (startButtonRef.current && startButtonRef.current.contains(event.target as Node)){
-                setShowStartPanel(true)
-            }else{
-                setShowStartPanel(false)
-            }};
+  const StartContent = (): JSX.Element => {
+    useEffect(() => {
+      window.onclick = (event: MouseEvent) => {
+        if ((startRef.current?.contains(event.target as Node)) === true) {
+          setShowStartPanel(true)
+        } else {
+          setShowStartPanel(false)
+        }
+      }
     })
 
-    const StartContent = () => {
-
-        useEffect(() => {
-            window.onclick = (event: MouseEvent) => {
-                if (startRef.current && startRef.current.contains(event.target as Node)){ 
-                    setShowStartPanel(true) 
-                }else{
-                    setShowStartPanel(false)
-                } };
-          });
-
-        return(<div ref={startRef} className='start-content'>
+    return (<div ref={startRef} className='start-content'>
             <div className='start-windows-label'>
             <img src={Windows95Vertical} alt='Connecting'/>
             </div>
             <div className='start-content-items'>
-                <div onClick={() => dispatch({ type: SHOW_ABOUT, payload: true })} className='single-item'>
+                <div onClick={() => { dispatch({ type: SHOW_ABOUT, payload: true }) }} className='single-item'>
                     <img src={Somebody} alt='Connecting' width='25' />
                     <span>About Me</span>
                 </div>
@@ -66,23 +65,23 @@ function Taskbar (): JSX.Element {
                     <span>My LinkedIn</span>
                 </div>
                     </a>
-                <div onClick={() => dispatch({ type: SHOW_WORK, payload: true })} className='single-item'>
-                <img src={Work} alt='Connecting' width='25' />
+                <div onClick={() => { dispatch({ type: SHOW_WORK, payload: true }) }} className='single-item'>
+                <img src={WorkIcon} alt='Connecting' width='25' />
                     <span>My Work</span>
                 </div>
-                <div onClick={() => dispatch({ type: SHOW_DIALUP, payload: true })} className='single-item'>
+                <div onClick={() => { dispatch({ type: SHOW_DIALUP, payload: true }) }} className='single-item'>
                 <img src={DialupWindowIcon} alt='Connecting' width='25' />
                     <span>Dial-up Connection</span>
                 </div>
             </div>
         </div>)
-    }
+  }
 
   return (
     <div className='taskbar-container'>
     <div className='credits'>
         <span>BETA VERSION</span>
-        <button onClick={() => dispatch({type: ENABLE_SOUND, payload: !enableSound})}>{enableSound ? 'Disable sound' : 'Enable sound'}</button>
+        <button onClick={() => { dispatch({ type: ENABLE_SOUND, payload: !enableSound }) }}>{enableSound ? 'Disable sound' : 'Enable sound'}</button>
         <span>W95FA font by <a href='https://sava.io/' target='_blank' rel="noreferrer">Alina Sava</a></span>
         <span>Windows 95 icons by <a href='https://github.com/trapd00r/win95-winxp_icons' target='_blank' rel="noreferrer">trapd00r</a></span>
     </div>
@@ -110,10 +109,12 @@ function Taskbar (): JSX.Element {
                 </div>
             </div>
             <div className='clock-and-icons'>
-                {enableSound ? <img onClick={() => dispatch({ type: ENABLE_SOUND, payload: false })} className='icon-in-taskbar' src={SoundOn} alt='Sound on' width='20' />
-                : <img onClick={() => dispatch({ type: ENABLE_SOUND, payload: true })} className='icon-in-taskbar' src={SoundOff} alt='Sound off' width='20' /> }
-                {showDialup ? <img src={ModemDial} alt='Dialing' width='23' />
-                : <img onClick={() => dispatch({ type: SHOW_DIALUP, payload: true })} className='icon-in-taskbar' src={DialingDone} alt='Connected' width='23' /> }
+                {enableSound
+                  ? <img onClick={() => { dispatch({ type: ENABLE_SOUND, payload: false }) }} className='icon-in-taskbar' src={SoundOn} alt='Sound on' width='20' />
+                  : <img onClick={() => { dispatch({ type: ENABLE_SOUND, payload: true }) }} className='icon-in-taskbar' src={SoundOff} alt='Sound off' width='20' /> }
+                {showDialup
+                  ? <img src={ModemDial} alt='Dialing' width='23' />
+                  : <img onClick={() => { dispatch({ type: SHOW_DIALUP, payload: true }) }} className='icon-in-taskbar' src={DialingDone} alt='Connected' width='23' /> }
                 {usTime}
             </div>
         </div>
