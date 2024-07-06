@@ -90,3 +90,22 @@ sketch
 .env*.local
 .vercel
 next-env.d.ts
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# dependencies
+# testing
+/http
+/http2
+# next.js
+# production
+# misc
+# debug
+# local env files
+cypress.env.json
+# vercel
+# typescript
+yarn.lock
+yarn.error.log
+package-lock.json
+# test
+cypress/videos
+cypress/screenshots
