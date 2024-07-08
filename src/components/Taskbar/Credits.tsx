@@ -1,3 +1,5 @@
+import React from "react";
+
 // Assets
 import PreviewIcon from "../../media/preview.png";
 

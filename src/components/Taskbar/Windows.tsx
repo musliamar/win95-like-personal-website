@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 // Assets
 import StartIcon from "../../media/win95icon.png";

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 // Components
 import { Taskbar } from "./components/Taskbar";

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // Assets
 import DialupWindowIcon from "../../media/dialup-window-icon.png";

@@ -1,3 +1,5 @@
+import React from "react";
+
 // Assets
 import Somebody from "../media/cia.png";
 import Work from "../media/work.png";

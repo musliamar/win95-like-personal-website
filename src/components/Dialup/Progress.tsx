@@ -1,3 +1,5 @@
+import React from "react";
+
 // Assets
 import Globe from "../../media/win95globe.png";
 import DialupIcon from "../../media/dialup-icon.png";

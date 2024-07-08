@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, MouseEvent } from "react";
+import React, { useState, useEffect, useRef, MouseEvent } from "react";
 
 // Styles
 import "./Dialup/Dialup.css";

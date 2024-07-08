@@ -1,3 +1,5 @@
+import React from "react";
+
 // Assets
 import ModemDial from "../../media/modem-dial.gif";
 import DialingDone from "../../media/dialing-done.png";

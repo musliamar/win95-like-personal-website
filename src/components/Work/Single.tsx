@@ -1,3 +1,6 @@
+import React from "react";
+import { TbZoomIn } from "react-icons/tb";
+
 // Assets
 import GithubIcon from "../../media/github.png";
 import YoutubeIcon from "../../media/yt.png";
@@ -19,13 +22,26 @@ export const Single = ({
   <>
     <div className="single-project">
       {window.innerWidth > 830 && (
-        <div className="picture">
+        <div style={{ position: "relative" }}>
           <img
             src={picture !== "none" ? picture : Me}
             alt="Github icon"
             width="200"
             height="130"
           />
+          <a href={picture} target="_blank" rel="noreferrer">
+            <TbZoomIn
+              size={24}
+              style={{
+                position: "absolute",
+                bottom: 5,
+                right: 5,
+                backgroundColor: "#c1c1c1BF",
+                borderRadius: "100%",
+                padding: 3
+              }}
+            />
+          </a>
         </div>
       )}
       <div className="details">
